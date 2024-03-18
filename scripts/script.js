@@ -65,7 +65,6 @@ function getListingInformation(listing){
           document.getElementById("publisher").innerHTML = "<span>Publisher: </span>" + publisher;
           document.getElementById("yearPrinted").innerHTML = "<span>Year of Publication: </span>" + yearPrinted;
           document.getElementById("description").innerHTML ="<p> </p>" + description;
-          // Need to format date 
           document.getElementById("date").innerHTML = "<p>Posted on:</p>" + date;
           document.getElementById("price").innerHTML = "<span>Price: $</span>" + price;
           document.getElementById("name").innerHTML = "<p>Name:</p>" + name;
