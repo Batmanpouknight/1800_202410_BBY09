@@ -25,7 +25,7 @@ function displayProducts(collection) {
                 let newProduct = productTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text and image
-                newProduct.querySelector('.product').innerHTML = bookName + "<br>" + user;
+                newProduct.querySelector('.product').innerHTML = bookName + "<br>" + "Posted by: " + user;
                 newProduct.querySelector('.date').innerHTML = "Date posted:" + date;
                 newProduct.querySelector('.price').innerHTML = "$" + price;
                 // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
