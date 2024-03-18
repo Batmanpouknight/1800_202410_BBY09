@@ -29,7 +29,7 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/style.css">
-  <link rel="stylesheet" href="styles/ProductDetails.css">
+  <link rel="stylesheet" href="styles/details.css">
 </head>
 
 <body>
@@ -48,21 +48,21 @@
            <div class="product-description">
              <span>Textbook</span>
              <h1>Java Software Solutions</h1>
-             <p>A comprehensive guide to programming fundamentals, covering variables, loops, functions, and more. Ideal for beginners and intermediate programmers looking to deepen their understanding.</p>
+             
            </div>
         
            <!-- Detailed Textbook Information -->
            <div class="detailed-info">
-             <div>
+             <div id="author">
                <span>Author:</span> Lewis / Loftus
              </div>
-             <div>
+             <div id="edition">
                <span>Edition:</span> 9th
              </div>
-             <div>
+             <div id="publisher">
                <span>Publisher:</span> Pearson
              </div>
-             <div>
+             <div id="yearPrinted">
                <span>Year of Publication:</span> 2024
              </div>
            </div>
@@ -70,6 +70,10 @@
            <!-- Detailed Condition Description -->
            <div class="condition-description">
              <h2>Condition Description</h2>
+             <div id="description">
+              <p></p>
+             </div>
+             <br>
              <p><strong>Cover:</strong> [Describe the condition of the cover. For example, "The cover is slightly worn with some creases and a few scratches."]</p>
              <p><strong>Pages:</strong> [Describe the condition of the pages. For example, "The pages are mostly clean with minimal markings or stains."]</p>
              <p><strong>Binding:</strong>[Describe the condition of the binding. For example, "The binding is intact, but there is some wear on the spine."]</p>
@@ -79,16 +83,25 @@
 
            <!-- Posted Date -->
            <div class="posted-date">
-                <p>Posted: <span>2024-04-01</span></p>
+                <div id="date">
+                  <p>Posted on:</p>
+                </div>    
             </div>
         
            <!-- Product Pricing and Contact Information -->
            <div class="product-price-contact">
-             <div>
+             <div id="price">
                <span>Price:</span> $25
              </div>
-             <div>
-               <span>Contact Info:</span> Email: john@example.com | Phone: (123) 456-7890
+             <div id="contact-info">
+               <span>Contact Info:</span> 
+               <div id="name">
+                <p>Name:</p>
+                </div>
+                <div id="email">
+                  <p>Email:</p>
+                </div>
+
              </div>
            </div>
         </div>  
