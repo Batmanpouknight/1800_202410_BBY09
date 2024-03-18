@@ -41,4 +41,3 @@ function displayProducts(collection) {
       })
     })
 }
-displayProducts("listings");
