@@ -1,0 +1,18 @@
+/* main.html */
+.carousel {
+    transform: scale(1.0); /* Adjust the scale as needed */
+    
+}
+.carousel-control-prev,
+.carousel-control-next {
+ color: blue; /* Change to the color you want */
+}
+.carousel-indicators li {
+    color: blue; /* Change to the color you want */
+}
+.carousel-caption {
+    color: black; /* Change to the color you want */
+    font-size: larger;
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    padding: 10px; /* Add some padding for better appearance */
+}

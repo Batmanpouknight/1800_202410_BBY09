@@ -1,0 +1,156 @@
+/* Basic Styling */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+/* Columns */
+.left-column {
+    width: 65%;
+    position: relative;
+    display: flex; /* Add flex to align images horizontally */
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+}
+
+.right-column {
+    width: 35%;
+    margin-top: 60px;
+}
+
+/* Left Column */
+.left-column img {
+    width: 100%; /* Adjust width as needed */
+    position: relative; /* Adjust positioning as needed */
+    opacity: 1; /* Ensure images are visible */
+    margin-right: 300px; /* Add margin to the right side of the left column */
+}
+
+.left-column img.active {
+    opacity: 1;
+}
+
+/* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+}
+
+.product-description span {
+    font-size: 12px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.product-description h1 {
+    font-weight: 300;
+    font-size: 52px;
+    color: #43484D;
+    letter-spacing: -2px;
+}
+
+.product-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+}
+
+/* Detailed Textbook Information */
+.detailed-info {
+    margin-bottom: 30px;
+}
+
+.detailed-info div {
+    margin-bottom: 10px;
+}
+
+/* Detailed Condition Description */
+.condition-description {
+    margin-bottom: 30px;
+}
+
+.condition-description p {
+    margin-bottom: 10px;
+}
+
+/* Product Price and Contact Information */
+.product-price-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.product-price-contact div {
+    margin-right: 20px;
+}
+
+.product-price-contact span {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474D;
+}
+
+.cart-btn {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+}
+
+.cart-btn:hover {
+    background-color: #64af3d;
+}
+
+/* Posted Date */
+.posted-date {
+    font-size: 18px;
+    color: #86939E;
+}
+
+/* Responsive */
+@media (max-width: 940px) {
+    .container {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    .left-column img {
+        width: 100%; /* Adjust width as needed */
+        position: relative; /* Adjust positioning as needed */
+        opacity: 1; /* Ensure images are visible */
+        transition: all 0.3s ease;
+        margin-right: 300px; /* Add margin to the right side of the left column */
+    }
+}
+
+@media (max-width: 535px) {
+    .left-column img {
+        width: 100%; /* Adjust width as needed */
+        position: relative; /* Adjust positioning as needed */
+        opacity: 1; /* Ensure images are visible */
+        transition: all 0.3s ease;
+        margin-left: 300px; /* Add margin to the right side of the left column */
+    }
+}
