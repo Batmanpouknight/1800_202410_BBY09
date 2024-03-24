@@ -11,6 +11,7 @@ function displayProducts(collection) {
   let productTemplate = document.getElementById("productTemplate");
   db.collection(collection).get()
     .then(allProducts => {
+      var i = 1;
       allProducts.forEach(doc => {
         var userId = doc.data().userId;
         db.collection("users").doc(userId).get()
@@ -22,14 +23,18 @@ function displayProducts(collection) {
                 var date = doc.data().date.toDate().toLocaleString();
                 var price = doc.data().price;
                 var user = userDoc.data().name;
+                var image = doc.data().image;
                 let newProduct = productTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text and image
+                newProduct.querySelector('.number').innerHTML = i;
                 newProduct.querySelector('.product').innerHTML = bookName + "<br>" + "Posted by: " + user;
                 newProduct.querySelector('.date').innerHTML = "Date posted:" + date;
                 newProduct.querySelector('.price').innerHTML = "$" + price;
-                // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
+                newProduct.querySelector('.image').src = "./images/" + image + ".jpg"; 
+                console.log(newProduct.querySelector('.image').src);
 
+                i++;
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newProduct);
               }).catch(error => {
@@ -38,6 +43,7 @@ function displayProducts(collection) {
           }).catch(error => {
             console.error("Error getting users document: ", error);
           })
+          
       })
     })
 }
