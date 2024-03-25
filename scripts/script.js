@@ -30,7 +30,7 @@ function displayProducts(collection) {
                 item.querySelector('.product').innerHTML = bookName + "<br>" + "Posted by: " + user;
                 item.querySelector('.date').innerHTML = "Date posted:" + date;
                 item.querySelector('.price').innerHTML = "$" + price;
-                item.querySelector('.image').src = "./images/" + image + ".jpg";
+                item.querySelector('.image').src = "./images/" + image;
                 localStorage.setItem('listingDocID' + i, docId);
 
                 i++;
@@ -72,8 +72,9 @@ function getListingInformation(listing) {
       db.collection("users").doc(userId).get().then(docUser => {
         var email = docUser.data().email;
         var name = docUser.data().name;
+        localStorage.setItem("userId", userId);
         document.querySelector(".product-description").innerHTML = "<span>Textbook</span><h1>" + bookName + "</h1>";
-        document.getElementById("image").src = "./images/" + image + ".jpg";
+        document.getElementById("image").src = "./images/" + image;
         document.getElementById("author").innerHTML = "<span>Author: </span>" + author;
         document.getElementById("edition").innerHTML = "<span>Edition: </span>" + edition;
         document.getElementById("publisher").innerHTML = "<span>Publisher: </span>" + publisher;
@@ -81,10 +82,8 @@ function getListingInformation(listing) {
         document.getElementById("description").innerHTML = "<p> </p>" + description;
         document.getElementById("date").innerHTML = "<p>Posted on:</p>" + date;
         document.getElementById("price").innerHTML = "<span>Price: $</span>" + price;
-        document.getElementById("name").innerHTML = "<p>Name:</p>" + name;
+        document.getElementById("name").innerHTML = "<p>Name:</p><a href='accounts.html'>" + name + "</a>";
         document.getElementById("email").innerHTML = "<p>Email:</p>" + email;
-
-
       })
     })
   })

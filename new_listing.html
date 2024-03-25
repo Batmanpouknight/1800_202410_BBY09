@@ -34,19 +34,24 @@
         <nav id="navbarPlaceholder"></nav>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Textbook name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1"
+            <label for="name" class="form-label">Textbook name</label>
+            <input type="text" class="form-control" id="name"
                 placeholder="eg. Java Software Solutions">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="price" class="form-label">Price</label>
+            <input type="" class="form-control" id="price"
+                placeholder="eg. 100">
         </div>
         <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Upload pictures of the textbook</label>
-            <input class="form-control" type="file" id="formFileMultiple" multiple>
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="mb-3">
+            <label for="picture" class="form-label">Upload pictures of the textbook</label>
+            <input class="form-control" type="file" id="picture" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="createNewListing()">Submit</button>
     </form>
 
 
@@ -56,6 +61,6 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY09.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/new-listing.js"></script>
     <script src="./scripts/skeleton.js"></script>
 </body>
