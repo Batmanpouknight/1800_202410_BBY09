@@ -40,7 +40,7 @@
 
     <!-- Left Column / Textbook Images -->
     <div class="left-column">
-      <img data-image="Image1" class="active" src="images/JavaSoftwareSolutionsDummy.jpg" alt="">
+      <img id="image" data-image="Image1" class="active" src="images/JavaSoftwareSolutionsDummy.jpg" alt="picture of listing" style="height: 100vh;">
     </div>
 
     <!-- Right Column -->
@@ -122,6 +122,9 @@
   <script src="./scripts/firebaseAPI_BBY09.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/skeleton.js"></script>
+  <script>
+    getListingInformation(localStorage.getItem("listingDocID"));
+  </script>
 
 </body>
 
