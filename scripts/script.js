@@ -82,8 +82,10 @@ function getListingInformation(listing) {
         document.getElementById("description").innerHTML = "<p> </p>" + description;
         document.getElementById("date").innerHTML = "<p>Posted on:</p>" + date;
         document.getElementById("price").innerHTML = "<span>Price: $</span>" + price;
-        document.getElementById("name").innerHTML = "<p>Name:</p><a href='accounts.html'>" + name + "</a>";
+        document.getElementById("name").innerHTML = "<p>Name:</p>" + name;
         document.getElementById("email").innerHTML = "<p>Email:</p>" + email;
+        document.getElementById("buttonContainer").innerHTML = "<a href='accounts.html'><button>About</button></a>";
+
       })
     })
   })
