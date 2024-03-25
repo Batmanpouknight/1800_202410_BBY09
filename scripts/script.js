@@ -84,7 +84,7 @@ function getListingInformation(listing) {
         document.getElementById("price").innerHTML = "<span>Price: $</span>" + price;
         document.getElementById("name").innerHTML = "<p>Name:</p>" + name;
         document.getElementById("email").innerHTML = "<p>Email:</p>" + email;
-        document.getElementById("buttonContainer").innerHTML = "<a href='accounts.html'><button>About</button></a>";
+        document.getElementById("buttonContainer").innerHTML = "<a href='accounts.html'><button class='btn btn-primary'>About</button></a>";
 
       })
     })
