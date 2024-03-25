@@ -11,4 +11,4 @@ function getContactInformation(user) {
         document.getElementById("country").innerHTML = "<label>Country</label><p>" + country + "</p>";
     })
 }
-getContactInformation("UmYiMWubRmQ0kCt4aEbiMuknsm12");
+getContactInformation(localStorage.getItem("userId"));
