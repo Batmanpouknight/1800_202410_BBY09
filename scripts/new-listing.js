@@ -10,6 +10,8 @@ function createNewListing(){
         description: description,
         image: null,
         price: price,
-        userId: null
+        userId: localStorage.getItem("currUserid")
+    }).then(() => {
+        window.location.href = 'main.html';
     });
 }
