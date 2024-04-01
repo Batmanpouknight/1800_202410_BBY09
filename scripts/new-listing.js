@@ -14,7 +14,7 @@ function createNewListing(){
         price: price,
         userId: localStorage.getItem("currUserid")
     }).then(doc => {
-        uploadPic(doc.id);
+        // uploadPic(doc.id);
         // window.location.href = 'main.html';
     });
 }
@@ -64,16 +64,17 @@ function uploadPic(postDocID) {
                             "image": url // Save the URL into users collection
                         })
                          // AFTER .update is done
-                        .then(function () {
-                            console.log('4. Added pic URL to Firestore.');
-                            // One last thing to do:
-                            // save this postID into an array for the OWNER
-                            // so we can show "my posts" in the future
-                            savePostIDforUser(postDocID);
-                        })
+                        // .then(function () {
+                        //     console.log('4. Added pic URL to Firestore.');
+                        //     // One last thing to do:
+                        //     // save this postID into an array for the OWNER
+                        //     // so we can show "my posts" in the future
+                        //     savePostIDforUser(postDocID);
+                        // })
                 })
         })
         .catch((error) => {
              console.log("error uploading to cloud storage");
         })
 }
+
