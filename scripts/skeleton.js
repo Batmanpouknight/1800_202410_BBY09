@@ -14,3 +14,7 @@ function loadSkeleton() {
     });
 }
 loadSkeleton(); //invoke the function
+// Load footer 
+$(function(){
+    $(".footerPlaceholder").load("./text/footer.html");
+});

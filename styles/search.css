@@ -57,3 +57,13 @@
     display: inline;
     font-weight: 600;
 }
+
+footer {
+    position:fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 10px 0; 
+    text-align: center; 
+    color: white;
+}
