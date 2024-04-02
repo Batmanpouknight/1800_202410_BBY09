@@ -6,6 +6,7 @@ function getContactInformation(user) {
         var school = docUser.data().school;
         var country = docUser.data().country;
         var listings = docUser.data().listings;
+        var rating = docUser.data().ratings;
         document.getElementById("name").innerHTML = "<label>Name</label><p>" + name + "</p>";
         document.getElementById("email").innerHTML = "<label>Email</label><p>" + email + "</p>";
         document.getElementById("school").innerHTML = "<label>School</label><p>" + school + "</p>";
@@ -13,9 +14,24 @@ function getContactInformation(user) {
         if(listings != null){
             displayListings(localStorage.getItem("userId"));
         }
+        if (rating != null) {
+            getAverageScore(rating);
+        }
     })
 }
 getContactInformation(localStorage.getItem("userId"));
+
+function getAverageScore(rating){
+    let total = 0;
+    let index = 0;
+    let average;
+    rating.forEach(function(num){
+        total += num;
+        index++;
+    });
+    average = total/index;
+    document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average;
+}
 
 function displayListings(user){
     db.collection("users").doc(user).get().then(docUser => {

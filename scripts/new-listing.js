@@ -1,11 +1,29 @@
 var ImageFile;
+function checkLogIn(){
+    let userId = localStorage.getItem("currUserid");
+    if(userId == null){
+        alert("You are not logged in");
+        window.location.href = 'login.html';
+    }
+}
+checkLogIn();
+
 function createNewListing(){
     var listingRef = db.collection("listings");
     let bookName = document.getElementById("name").value;
-    let price = document.getElementById("price").value;
+    let priceAsString = document.getElementById("price").value;
+    let price = parseInt(priceAsString);
     let description = document.getElementById("description").value;
     let image = document.getElementById("picture").value;
-    
+    if (bookName == "" || price == "" || description == "") {
+        alert("fill every field");
+        return;
+    }
+    console.log(price);
+    if(isNaN(price)){
+        alert("please enter only numbers in price field");
+        return;
+    }
     listingRef.add({
         bookId: bookName,
         date: firebase.firestore.FieldValue.serverTimestamp(),

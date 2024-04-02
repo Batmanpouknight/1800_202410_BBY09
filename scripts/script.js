@@ -14,7 +14,5 @@ function redirect(row) {
   var listingId = localStorage.getItem("listingDocID" + row);
   localStorage.setItem('listingDocID', listingId);
   window.location.href = 'details.html';
-  console.log(listingId);
- 
 }
 
