@@ -4,6 +4,10 @@ var rating = 0;
 function setUp(){
     revieweeID = localStorage.getItem('userId');
     reviewerID= localStorage.getItem('currUserid');
+    if (reviewerID == null) {
+        alert("You are not logged in!");
+        window.location.href = 'login.html';
+    }
     db.collection("users").doc(reviewerID).get().then(docThisUser => {
         let reviewedUsers = docThisUser.data().usersReviewed;
         console.log(reviewedUsers);
