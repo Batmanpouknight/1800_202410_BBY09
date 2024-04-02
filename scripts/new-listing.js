@@ -15,11 +15,12 @@ function createNewListing(){
         userId: localStorage.getItem("currUserid")
     }).then(doc => {
         // uploadPic(doc.id);
-        // window.location.href = 'main.html';
         db.collection("users").doc(localStorage.getItem("currUserid")).update({
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
         });
     });
+    window.location.href = 'thanks.html';
+    
 }
 
 function listenFileSelect() {

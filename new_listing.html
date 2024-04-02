@@ -25,7 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/footer.css">
 
 </head>
 
@@ -50,11 +50,15 @@
             <input class="form-control" type="file" id="picture" multiple>
             <img id="mypic-goes-here" width=100 height=100 />
         </div>
-        <button id="submitButton" type="button" class="btn btn-primary" onclick="createNewListing();" onclick="redirectToThanksPage();">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="createNewListing();">Submit</button>
+        
     </form>
 
     <!-- Sticky footer -->
-    <nav class="footerPlaceholder"></nav>
+    <footer>
+        <nav class="footerPlaceholder"></nav>
+    </footer>
+    
 
 
     <!---------------------------------------------->
