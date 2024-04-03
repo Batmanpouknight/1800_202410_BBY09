@@ -1,3 +1,15 @@
 .myForm {
-    margin-bottom: 60; /* Center the form */
+    margin-bottom: 20;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    width: 100%;
+
+}
+
+.form-container {
+    display: flex;
+    justify-content:left;
+    align-items: center;
 }
