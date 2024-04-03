@@ -6,3 +6,13 @@
         'opsz' 48;
     cursor: pointer;
 }
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 5px 0; 
+    text-align: center; 
+    color: white;
+}
