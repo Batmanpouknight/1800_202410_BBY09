@@ -14,30 +14,34 @@ function createNewListing(){
     let priceAsString = document.getElementById("price").value;
     let price = parseInt(priceAsString);
     let description = document.getElementById("description").value;
-    let image = document.getElementById("picture").value;
-    if (bookName == "" || price == "" || description == "") {
+    let author = document.getElementById("author").value;
+    let editionAsString = document.getElementById("edition").value;
+    let edition = parseInt(editionAsString);
+    let course = document.getElementById("course").value;
+    if (bookName == "" || price == "" || description == "" || course == "" || author == "" || edition == "") {
         alert("fill every field");
         return;
     }
-    console.log(price);
-    if(isNaN(price)){
-        alert("please enter only numbers in price field");
+    if(isNaN(price) || isNaN(edition)){
+        alert("please enter only numbers in price and edition fields");
         return;
     }
     listingRef.add({
+        author: author,
+        edition: edition,
+        course: course,
         bookId: bookName,
         date: firebase.firestore.FieldValue.serverTimestamp(),
         description: description,
-        image: null,
         price: price,
         userId: localStorage.getItem("currUserid")
     }).then(doc => {
-        // uploadPic(doc.id);
+        uploadPic(doc.id);
         db.collection("users").doc(localStorage.getItem("currUserid")).update({
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
         });
     });
-    window.location.href = 'thanks.html';
+    // window.location.href = 'thanks.html';
     
 }
 
@@ -51,7 +55,9 @@ function listenFileSelect() {
         ImageFile = e.target.files[0];   //Global variable
         var blob = URL.createObjectURL(ImageFile);
         image.src = blob; // Display this image
+        console.log(ImageFile);
     })
+    
 }
 listenFileSelect();
 
@@ -82,17 +88,10 @@ function uploadPic(postDocID) {
                     // Now that the image is on Storage, we can go back to the
                     // post document, and update it with an "image" field
                     // that contains the url of where the picture is stored.
-                    db.collection("posts").doc(postDocID).update({
+                    db.collection("listings").doc(postDocID).update({
                             "image": url // Save the URL into users collection
                         })
-                         // AFTER .update is done
-                        // .then(function () {
-                        //     console.log('4. Added pic URL to Firestore.');
-                        //     // One last thing to do:
-                        //     // save this postID into an array for the OWNER
-                        //     // so we can show "my posts" in the future
-                        //     savePostIDforUser(postDocID);
-                        // })
+                        
                 })
         })
         .catch((error) => {

@@ -6,10 +6,7 @@ function displayProducts(collection) {
           var userId = doc.data().userId;
           db.collection("users").doc(userId).get()
             .then(userDoc => {
-              var bookId = doc.data().bookId;
-              db.collection("books").doc(bookId).get()
-                .then(bookDoc => {
-                  var bookName = bookDoc.data().name;
+                  var bookName = doc.data().bookId;
                   var date = doc.data().date.toDate().toLocaleString();
                   var price = doc.data().price;
                   var user = userDoc.data().name;
@@ -21,13 +18,10 @@ function displayProducts(collection) {
                   item.querySelector('.product').innerHTML = bookName + "<br>" + "Posted by: " + user;
                   item.querySelector('.date').innerHTML = "Date posted:" + date;
                   item.querySelector('.price').innerHTML = "$" + price;
-                  item.querySelector('.image').src = "./images/" + image;
+                  item.querySelector('.image').src =  image;
                   localStorage.setItem('listingDocID' + i, docId);
   
                   i++;
-                }).catch(error => {
-                  console.error("Error getting book document: ", error);
-                })
             }).catch(error => {
               console.error("Error getting users document: ", error);
             })
