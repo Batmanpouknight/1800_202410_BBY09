@@ -64,7 +64,6 @@ function submitReview() {
         db.collection("users").doc(revieweeID).get().then(revieweeDoc => {
             let ratingTotal = revieweeDoc.data().ratingsTotal;
             ratingTotal += rating;
-            console.log(ratingTotal);
 
             db.collection("users").doc(revieweeID).update({
                 reviews: firebase.firestore.FieldValue.arrayUnion(docRef.id),
@@ -75,4 +74,5 @@ function submitReview() {
             });
         });
     });
+    window.location.href = 'thanks.html';
 }

@@ -6,34 +6,37 @@ function getContactInformation(user) {
         var school = docUser.data().school;
         var country = docUser.data().country;
         var listings = docUser.data().listings;
-        var rating = docUser.data().ratings;
+        var totalRating = docUser.data().ratingsTotal;
+        var reviews = docUser.data().reviews;
+        var lastSeen = docUser.data().lastSeen.toDate().toLocaleString();
         document.getElementById("name").innerHTML = "<label>Name</label><p>" + name + "</p>";
         document.getElementById("email").innerHTML = "<label>Email</label><p>" + email + "</p>";
         document.getElementById("school").innerHTML = "<label>School</label><p>" + school + "</p>";
         document.getElementById("country").innerHTML = "<label>Country</label><p>" + country + "</p>";
-        if(listings != null){
+        document.getElementById("last-seen").innerHTML = "<label>Last Seen</label><p>" + lastSeen + "</p>";
+        if (listings != null) {
             displayListings(localStorage.getItem("userId"));
         }
-        if (rating != null) {
-            getAverageScore(rating);
-        }
+        average = totalRating / reviews.length;
+        document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average;
     })
 }
 getContactInformation(localStorage.getItem("userId"));
 
-function getAverageScore(rating){
+function getAverageScore(rating) {
     let total = 0;
     let index = 0;
     let average;
-    rating.forEach(function(num){
+    rating.forEach(function (num) {
         total += num;
         index++;
     });
-    average = total/index;
+    average = total / index;
     document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average;
 }
 
-function displayListings(user){
+function displayListings(user) {
+    console.log("Display listing called");
     db.collection("users").doc(user).get().then(docUser => {
         var listings = docUser.data().listings;
         var count = 0;
@@ -42,14 +45,11 @@ function displayListings(user){
                 if (count >= 2) {
                     return;
                 }
-                var bookId = listingDoc.data().bookId;
+                var bookName = listingDoc.data().bookId;
                 var time = listingDoc.data().date.toDate().toLocaleString();
                 var image = listingDoc.data().image;
-                db.collection("books").doc(bookId).get().then(bookDoc => {
-                    let bookName = bookDoc.data().name;
-                    document.getElementById("listings").innerHTML += "<div class='item'><img src=" + './images/' + image + "><h4>" + bookName + "</h4><div>posted on:" + time + "</div></div>";
-                    count++;
-                })
+                document.getElementById("listings").innerHTML += "<div class='item'><img src=" + image + "><h4>" + bookName + "</h4><div>posted on:" + time + "</div></div>";
+                count++;
             })
         });
     })

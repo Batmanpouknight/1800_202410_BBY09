@@ -18,6 +18,7 @@ function createNewListing(){
     let editionAsString = document.getElementById("edition").value;
     let edition = parseInt(editionAsString);
     let course = document.getElementById("course").value;
+    let categories = document.getElementById("categories").value;
     if (bookName == "" || price == "" || description == "" || course == "" || author == "" || edition == "" || ImageFile == undefined) {
         alert("fill every field");
         return;
@@ -28,9 +29,10 @@ function createNewListing(){
     }
     listingRef.add({
         author: author,
-        edition: edition,
-        course: course,
         bookId: bookName,
+        category: categories,
+        course: course,
+        edition: edition,
         date: firebase.firestore.FieldValue.serverTimestamp(),
         description: description,
         price: price,
