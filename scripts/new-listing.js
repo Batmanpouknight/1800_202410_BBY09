@@ -18,7 +18,7 @@ function createNewListing(){
     let editionAsString = document.getElementById("edition").value;
     let edition = parseInt(editionAsString);
     let course = document.getElementById("course").value;
-    if (bookName == "" || price == "" || description == "" || course == "" || author == "" || edition == "") {
+    if (bookName == "" || price == "" || description == "" || course == "" || author == "" || edition == "" || ImageFile == undefined) {
         alert("fill every field");
         return;
     }
@@ -41,7 +41,7 @@ function createNewListing(){
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
         });
     });
-    // window.location.href = 'thanks.html';
+    window.location.href = 'thanks.html';
     
 }
 
