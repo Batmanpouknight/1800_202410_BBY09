@@ -104,3 +104,8 @@ function filterByPrice(priceNum) {
 function moveToOtherPage(num) {
   showListings(num);
 }
+function redirect(row) {
+  var listingId = everyListingId[row - 1];
+  localStorage.setItem('listingDocID', listingId);
+  window.location.href = 'details.html';
+}
