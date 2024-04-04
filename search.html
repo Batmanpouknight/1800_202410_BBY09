@@ -32,7 +32,7 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/search.css">
-  
+
 
 
 </head>
@@ -63,39 +63,39 @@
 
                 <!-- BEGIN FILTER BY CATEGORY -->
                 <h4>By category:</h4>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Applied and Natural Sciences</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Business and Media</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Computing & Information Technology</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Engineering</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Health Sciences</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> Trades & Apprenticeships</label>
-                </div>
+                <form>
+                  <input type="radio" id="category-option1" name="options" value="Applied and Natural Sciences" onclick="filterByCategory(1);">
+                  <label for="category-option1">Applied and Natural Sciences</label><br>
+                  <input type="radio" id="category-option2" name="options" value="Business and Media" onclick="filterByCategory(2);">
+                  <label for="category-option2">Business and Media</label><br>
+                  <input type="radio" id="category-option3" name="options" value="Computing & Information Technology" onclick="filterByCategory(3);">
+                  <label for="category-option3">Computing & Information Technology</label><br>
+                  <input type="radio" id="category-option4" name="options" value="Engineering" onclick="filterByCategory(4);">
+                  <label for="category-option4">Engineering</label><br>
+                  <input type="radio" id="category-option5" name="options" value="Health Sciences" onclick="filterByCategory(5);">
+                  <label for="category-option5">Health Sciences</label><br>
+                  <input type="radio" id="category-option6" name="options" value="Trades & Apprenticeships" onclick="filterByCategory(6);">
+                  <label for="category-option6">Trades & Apprenticeships</label><br>
+                  <input type="radio" id="category-none" name="options" value="none" onclick="filterByCategory(7);">
+                  <label for="category-none">None</label><br>
+                </form>
+
                 <!-- END FILTER BY CATEGORY -->
 
                 <div class="padding"></div>
 
                 <!-- BEGIN FILTER BY PRICE -->
                 <h4>By price:</h4>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> $0 to $99</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> $100 to $199</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" class="icheck"> $200 and above</label>
-                </div>
+                <form>
+                  <input type="radio" id="price-option1" name="options" value="0-100" onclick="filterByPrice(1);">
+                  <label for="price-option1">$0-$100</label><br>
+                  <input type="radio" id="price-option2" name="options" value="100-200" onclick="filterByPrice(2);">
+                  <label for="price-option2">$100-$200</label><br>
+                  <input type="radio" id="price-option3" name="options" value="200+" onclick="filterByPrice(3);">
+                  <label for="price-option3">$200+</label><br>
+                  <input type="radio" id="price-none" name="options" value="none" onclick="filterByPrice(4);">
+                  <label for="price-none">None</label><br>
+                </form>
                 <!-- END FILTER BY PRICE -->
               </div>
               <!-- END FILTERS -->
@@ -104,33 +104,31 @@
                 <h2><i class="fa fa-file-o"></i> Result</h2>
                 <hr>
                 <!-- BEGIN SEARCH INPUT -->
-                <div class="input-group">
+                <!-- <div class="input-group">
                   <input type="text" class="form-control" value="web development">
                   <span class="input-group-btn">
                     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
                   </span>
-                </div>
+                </div> -->
                 <!-- END SEARCH INPUT -->
-                <p>Showing all results matching "web development"</p>
+                <!-- <p>Showing all results matching "web development"</p> -->
 
                 <div class="padding"></div>
 
                 <div class="row">
                   <!-- BEGIN ORDER RESULT -->
                   <div class="col-sm-6">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Order by <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Name</a></li>
-                        <li><a href="#">Date</a></li>
-                        <li><a href="#">View</a></li>
-                        <li><a href="#">Rating</a></li>
-                      </ul>
+                    <div class="mb-3">
+                      <label for="sort-by" class="form-label">Sort by:</label>
+                      <select class="form-select" aria-label="Choose category" id="sort-by">
+                        <option selected value=null>Open this select menu</option>
+                        <option value="Name">Name</option>
+                        <option value="Date">Date</option>
+                        <option value="Price">Price</option>
+                      </select>
                     </div>
                   </div>
-                  
+
                   <!-- END ORDER RESULT -->
 
                   <div class="col-md-6 text-right">
@@ -145,7 +143,7 @@
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tbody id="listings-go-here">
-                      <!-- <tr id="item1" onclick="redirect(1);">
+                      <!-- <tr id="item1" onclick="redirect(1);"> TEMPLATE
                         <td class="number text-center">1</td>
                         <td class="image-contain"><img class="image" src="https://www.bootdey.com/image/400x300/FF8C00"
                             alt=""></td>
@@ -157,15 +155,9 @@
                     <!-- END TABLE RESULT -->
 
                     <!-- BEGIN PAGINATION -->
-                    <ul class="pagination">
-                      <li class="disabled"><a href="#">«</a></li>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">»</a></li>
-                    </ul>
+                    <div id="page-number-goes-here">
+                      <button onclick="moveToOtherPage(1);">1</button>
+                    </div>
                     <!-- END PAGINATION -->
                 </div>
                 <!-- END RESULT -->

@@ -6,7 +6,7 @@ function logout() {
       lastSeen: firebase.firestore.FieldValue.serverTimestamp()
     });
     localStorage.removeItem("currUserid");
-    alert("Logging out");
+    // alert("Logging out");
   }).catch((error) => {
     // An error happened.
   });
@@ -17,4 +17,3 @@ function redirect(row) {
   localStorage.setItem('listingDocID', listingId);
   window.location.href = 'details.html';
 }
-

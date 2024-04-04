@@ -27,23 +27,30 @@ function createNewListing(){
         alert("please enter only numbers in price and edition fields");
         return;
     }
+    if (price > 1000) {
+        alert("books can not be that expensive");
+        return;
+    }
     listingRef.add({
         author: author,
         bookId: bookName,
         category: categories,
         course: course,
-        edition: edition,
         date: firebase.firestore.FieldValue.serverTimestamp(),
         description: description,
+        edition: edition,
+        image: null,
         price: price,
         userId: localStorage.getItem("currUserid")
     }).then(doc => {
-        uploadPic(doc.id);
         db.collection("users").doc(localStorage.getItem("currUserid")).update({
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
-        });
+        })
+        uploadPic(doc.id);
+        setTimeout(function(){
+            window.location.href = 'thanks.html';
+        }, 1000);
     });
-    window.location.href = 'thanks.html';
     
 }
 
