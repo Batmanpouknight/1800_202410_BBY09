@@ -1,9 +1,8 @@
-var currentUser;               //points to the document of the user who is logged in
+var currentUser;   
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
-
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
             //get the document for current user.
@@ -44,8 +43,6 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 function saveUserInfo() {
-    //enter code here
-
     //a) get user entered values
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
     userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"

@@ -72,7 +72,8 @@ function submitReview() {
             db.collection("users").doc(reviewerID).update({
                 usersReviewed: firebase.firestore.FieldValue.arrayUnion(revieweeID)
             });
+            window.location.href = 'thanks.html';
         });
     });
-    window.location.href = 'thanks.html';
+    
 }

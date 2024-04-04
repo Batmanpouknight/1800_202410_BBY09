@@ -17,23 +17,12 @@ function getContactInformation(user) {
         if (listings != null) {
             displayListings(localStorage.getItem("userId"));
         }
-        average = totalRating / reviews.length;
-        document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average;
+        let average = totalRating / reviews.length;
+        document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average.toFixed(1) + "/5";
     })
 }
 getContactInformation(localStorage.getItem("userId"));
 
-function getAverageScore(rating) {
-    let total = 0;
-    let index = 0;
-    let average;
-    rating.forEach(function (num) {
-        total += num;
-        index++;
-    });
-    average = total / index;
-    document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average;
-}
 
 function displayListings(user) {
     console.log("Display listing called");
