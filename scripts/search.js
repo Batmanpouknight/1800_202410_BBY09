@@ -20,7 +20,10 @@ function loadEveryListing() {
         }
         if (i > totalPages * 10) {
           totalPages++;
-          document.getElementById("page-number-goes-here").innerHTML += "<button onclick='moveToOtherPage(" + totalPages + ");'>" + totalPages + "</button>";
+          document.getElementById("page-number-goes-here").innerHTML = "";
+          for (let index = 1; index <= totalPages; index++) {
+            document.getElementById("page-number-goes-here").innerHTML += "<button onclick='moveToOtherPage(" + index + ");'>" + index + "</button>";
+          }
         }
       });
       showListings(1);
@@ -34,8 +37,8 @@ function showListings(page) {
   if (everyListingId.length == 0) {
     item.innerHTML = "<h1>No Results</h1>";
   }
-  for (let index = (page - 1) * 10 + 1; index <= page * 10; index++) {
-    console.log(index);
+  let maxIndex = (page * 10 > everyListingId.length) ? everyListingId.length : page * 10;
+  for (let index = (page - 1) * 10 + 1; index <= maxIndex; index++) {
     db.collection("listings").doc(everyListingId[index - 1]).get()
       .then(doc => {
         var userId = doc.data().userId;
