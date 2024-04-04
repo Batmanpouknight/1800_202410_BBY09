@@ -34,3 +34,4 @@ function displayProducts(collection) {
       })
   }
   displayProducts("listings");
+  //coolest code ever
