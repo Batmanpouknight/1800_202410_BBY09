@@ -5,8 +5,10 @@ function logout() {
     db.collection("users").doc(localStorage.getItem("currUserid")).update({
       lastSeen: firebase.firestore.FieldValue.serverTimestamp()
     });
+    setTimeout(function() {
+      window.location.href = 'main.html';
+  }, 500);
     localStorage.removeItem("currUserid");
-    // alert("Logging out");
   }).catch((error) => {
     // An error happened.
   });

@@ -49,7 +49,7 @@ function createNewListing(){
         uploadPic(doc.id);
         setTimeout(function(){
             window.location.href = 'thanks.html';
-        }, 1000);
+        }, 1500);
     });
     
 }
