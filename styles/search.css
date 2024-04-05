@@ -68,7 +68,18 @@ footer {
     color: white;
     z-index: 1000;
 }
+#page-number-goes-here > .active{
+    background-color: cyan;
+}
 
 #page-number-goes-here > button{
     background-color: seashell;
+}
+.material-symbols-outlined{
+    cursor: pointer;
+    color: black;
+}
+
+.active-order{
+    color: cyan;
 }

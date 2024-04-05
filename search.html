@@ -32,6 +32,8 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/search.css">
+  <!-- Google icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
@@ -64,17 +66,23 @@
                 <!-- BEGIN FILTER BY CATEGORY -->
                 <h4>By category:</h4>
                 <form>
-                  <input type="radio" id="category-option1" name="options" value="Applied and Natural Sciences" onclick="filterByCategory(1);">
+                  <input type="radio" id="category-option1" name="options" value="Applied and Natural Sciences"
+                    onclick="filterByCategory(1);">
                   <label for="category-option1">Applied and Natural Sciences</label><br>
-                  <input type="radio" id="category-option2" name="options" value="Business and Media" onclick="filterByCategory(2);">
+                  <input type="radio" id="category-option2" name="options" value="Business and Media"
+                    onclick="filterByCategory(2);">
                   <label for="category-option2">Business and Media</label><br>
-                  <input type="radio" id="category-option3" name="options" value="Computing & Information Technology" onclick="filterByCategory(3);">
+                  <input type="radio" id="category-option3" name="options" value="Computing & Information Technology"
+                    onclick="filterByCategory(3);">
                   <label for="category-option3">Computing & Information Technology</label><br>
-                  <input type="radio" id="category-option4" name="options" value="Engineering" onclick="filterByCategory(4);">
+                  <input type="radio" id="category-option4" name="options" value="Engineering"
+                    onclick="filterByCategory(4);">
                   <label for="category-option4">Engineering</label><br>
-                  <input type="radio" id="category-option5" name="options" value="Health Sciences" onclick="filterByCategory(5);">
+                  <input type="radio" id="category-option5" name="options" value="Health Sciences"
+                    onclick="filterByCategory(5);">
                   <label for="category-option5">Health Sciences</label><br>
-                  <input type="radio" id="category-option6" name="options" value="Trades & Apprenticeships" onclick="filterByCategory(6);">
+                  <input type="radio" id="category-option6" name="options" value="Trades & Apprenticeships"
+                    onclick="filterByCategory(6);">
                   <label for="category-option6">Trades & Apprenticeships</label><br>
                   <input type="radio" id="category-none" name="options" value="none" onclick="filterByCategory(7);">
                   <label for="category-none">None</label><br>
@@ -119,23 +127,20 @@
                   <!-- BEGIN ORDER RESULT -->
                   <div class="col-sm-6">
                     <div class="mb-3">
-                      <label for="sort-by" class="form-label">Sort by:</label>
-                      <select class="form-select" aria-label="Choose category" id="sort-by">
-                        <option selected value=null>Open this select menu</option>
-                        <option value="Name">Name</option>
-                        <option value="Date">Date</option>
-                        <option value="Price">Price</option>
+                      <label for="sortby" class="form-label">Sort by:</label>
+                      <select class="form-select" aria-label="Choose category" id="sortby" onchange="sortListings();">
+                        <option selected value="bookId">Name</option>
+                        <option value="date">Date</option>
+                        <option value="price">Price</option>
                       </select>
                     </div>
                   </div>
 
                   <!-- END ORDER RESULT -->
 
-                  <div class="col-md-6 text-right">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-default active"><i class="fa fa-list"></i></button>
-                      <button type="button" class="btn btn-default"><i class="fa fa-th"></i></button>
-                    </div>
+                  <div class="col-md-6 text-right order-buttons">
+                    <span class="material-symbols-outlined active-order" onclick="changeOrder(1);">arrow_upward</span>
+                    <span class="material-symbols-outlined" onclick="changeOrder(2);">arrow_downward</span>
                   </div>
                 </div>
 
@@ -156,7 +161,7 @@
 
                     <!-- BEGIN PAGINATION -->
                     <div id="page-number-goes-here">
-                      <button onclick="moveToOtherPage(1);">1</button>
+                      <button class='active' onclick="moveToOtherPage(1);">1</button>
                     </div>
                     <!-- END PAGINATION -->
                 </div>
