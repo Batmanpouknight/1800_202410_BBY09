@@ -9,6 +9,7 @@ function getListingInformation(listing) {
     var image = docListing.data().image;
     var edition = docListing.data().edition;
     var author = docListing.data().author;
+    var course = docListing.data().course;
 
       db.collection("users").doc(userId).get().then(docUser => {
         var email = docUser.data().email;
@@ -18,9 +19,10 @@ function getListingInformation(listing) {
         document.getElementById("image").src = image;
         document.getElementById("author").innerHTML = "<span>Author: </span>" + author;
         document.getElementById("edition").innerHTML = "<span>Edition: </span>" + edition;
+        document.getElementById("course").innerHTML = "<span>Course: </span>" + course;
         document.getElementById("description").innerHTML = "<p> </p>" + description;
         document.getElementById("date").innerHTML = "<p>Posted on:</p>" + date;
-        document.getElementById("price").innerHTML = "<span>Price: $</span>" + price;
+        document.getElementById("price").innerHTML = "<span>Price: $" + price + "</span>";
         document.getElementById("name").innerHTML = "<p>Name:</p>" + name;
         document.getElementById("email").innerHTML = "<p>Email:</p>" + email;
       })

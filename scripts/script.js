@@ -15,3 +15,11 @@ function logout() {
 }
 
 
+function deleteUserListings(userId){
+  db.collection('users').doc(userId).get().then(doc => {
+    let userLisings = doc.data().listings;
+    userLisings.forEach(element => {
+      db.collection("listings").doc(element).delete();
+    });
+  })
+}
