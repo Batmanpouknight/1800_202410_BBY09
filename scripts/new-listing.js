@@ -9,7 +9,6 @@ function checkLogIn(){
 checkLogIn();
 
 function createNewListing(){
-    document.getElementById('submit-button').disabled = true;
     var listingRef = db.collection("listings");
     let bookName = document.getElementById("name").value;
     let priceAsString = document.getElementById("price").value;
@@ -48,6 +47,7 @@ function createNewListing(){
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
         })
         uploadPic(doc.id);
+        document.getElementById('submit-button').disabled = true;
         setTimeout(function(){
             window.location.href = 'thanks.html';
         }, 3000);
