@@ -50,6 +50,7 @@ function changeRating(num) {
 
 function submitReview() {
     let desc = document.getElementById("description").value;
+    document.getElementById('submit-button').disabled = true;
     if (rating == 0 || desc == null) {
         alert("fill every field");
         return;
@@ -72,7 +73,10 @@ function submitReview() {
             db.collection("users").doc(reviewerID).update({
                 usersReviewed: firebase.firestore.FieldValue.arrayUnion(revieweeID)
             });
-            window.location.href = 'thanks.html';
+            setTimeout(function(){
+                window.location.href = 'accounts.html';
+            }, 1000);
+            
         });
     });
     

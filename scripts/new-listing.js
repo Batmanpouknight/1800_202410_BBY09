@@ -9,6 +9,7 @@ function checkLogIn(){
 checkLogIn();
 
 function createNewListing(){
+    document.getElementById('submit-button').disabled = true;
     var listingRef = db.collection("listings");
     let bookName = document.getElementById("name").value;
     let priceAsString = document.getElementById("price").value;
@@ -49,7 +50,7 @@ function createNewListing(){
         uploadPic(doc.id);
         setTimeout(function(){
             window.location.href = 'thanks.html';
-        }, 1500);
+        }, 3000);
     });
     
 }
