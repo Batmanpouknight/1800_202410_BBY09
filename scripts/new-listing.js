@@ -19,18 +19,24 @@ function createNewListing(){
     let edition = parseInt(editionAsString);
     let course = document.getElementById("course").value;
     let categories = document.getElementById("categories").value;
+    let subBut = document.getElementById('submit-button');
+    subBut.disabled = true;
     if (bookName == "" || price == "" || description == "" || course == "" || author == "" || edition == "" || ImageFile == undefined) {
         alert("fill every field");
+        subBut.disabled = false;
         return;
     }
     if(isNaN(price) || isNaN(edition)){
         alert("please enter only numbers in price and edition fields");
+        subBut.disabled = false;
         return;
     }
     if (price > 1000) {
         alert("books can not be that expensive");
+        subBut.disabled = false;
         return;
     }
+    
     listingRef.add({
         author: author,
         bookId: bookName,
@@ -47,14 +53,13 @@ function createNewListing(){
             listings: firebase.firestore.FieldValue.arrayUnion(doc.id)
         })
         uploadPic(doc.id);
-        document.getElementById('submit-button').disabled = true;
+        
         setTimeout(function(){
             window.location.href = 'thanks.html';
         }, 3000);
     });
     
 }
-
 function listenFileSelect() {
     // listen for file selection
     var fileInput = document.getElementById("picture"); // pointer #1
