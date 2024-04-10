@@ -1,4 +1,5 @@
 var currentUser;   
+var listings;
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -61,3 +62,30 @@ function saveUserInfo() {
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
 }
+
+function displayListings(user) {
+    listings = [];
+    db.collection("users").doc(user).get().then(docUser => {
+        listings = docUser.data().listings;
+        for (let index = 0; index < listings.length; index++) {
+            db.collection("listings").doc(listings[index]).get().then(listingDoc => {
+                var bookName = listingDoc.data().bookId;
+                var time = listingDoc.data().date.toDate().toLocaleString();
+                var image = listingDoc.data().image;
+                document.getElementById("listings").innerHTML += "<div class='item'><img src=" + image + "><h4>" + bookName 
+                + "</h4><div>posted on:" + time + "</div><button type='button' onclick='redirect(" + index + ");'>see details</button></div>";
+            })
+        }
+        listings.forEach(thisListingId => {
+            
+        });
+    })
+}
+
+displayListings(localStorage.getItem('currUserid'));
+
+function redirect(num) {
+    var listingId = listings[num];
+    localStorage.setItem('listingDocID', listingId);
+    window.location.href = 'details.html';
+  }

@@ -1,0 +1,25 @@
+#listings {
+    display: grid;
+    grid-template-areas: 'item item item';
+    align-items: center;
+    justify-items: center;
+}
+
+.item {
+    border: 2px solid rgb(16, 82, 206);
+    color: black;
+    background-color: #8397a870;
+    padding: 20px;
+    margin: 20px;
+    width: 20vw;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}

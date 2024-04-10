@@ -18,14 +18,13 @@ function getContactInformation(user) {
             displayListings(localStorage.getItem("userId"));
         }
         let average = totalRating / reviews.length;
-        document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average.toFixed(1) + "/5";
+        document.getElementById("average-goes-here").innerHTML = "Hero Rating: " + average.toFixed(1) + "/5 (" + reviews.length + ")";
     })
 }
 getContactInformation(localStorage.getItem("userId"));
 
 
 function displayListings(user) {
-    console.log("Display listing called");
     db.collection("users").doc(user).get().then(docUser => {
         var listings = docUser.data().listings;
         var count = 0;

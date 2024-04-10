@@ -14,6 +14,7 @@ body {
   padding: 20px;
   margin: 20px;
   width: 20vw;
+  text-align: center;
 }
 
 .section {
@@ -46,6 +47,14 @@ img {
   .about-text h3 {
     font-size: 35px;
   }
+  #listings{
+    grid-template-areas: 'item'
+    'item';
+  }
+  .item{
+    width: 90vw;
+  }
+  
 }
 
 .about-text h6 {

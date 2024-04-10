@@ -25,9 +25,9 @@ function deleteUserListings(userId){
 }
 
 function autoListing(){
-  document.getElementById("name").value = "Writing in technical fields";
+  document.getElementById("name").value = "Writing in Technical Fields";
   document.getElementById("price").value = 17;
-  document.getElementById("description").value = "Good condition Great boo";
+  document.getElementById("description").value = "Good condition Great book";
   document.getElementById("author").value = "Thorsten Ewald";
   document.getElementById("edition").value = 3;
   document.getElementById("course").value = "COMM 1116";
