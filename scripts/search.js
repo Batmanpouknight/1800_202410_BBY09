@@ -1,6 +1,6 @@
 var category;
-var maxPrice;
-var minPrice;
+var maxPrice = 1000;
+var minPrice = 0;
 var everyListingId;
 var totalPages;
 var sortBy = 'bookId';
@@ -17,7 +17,7 @@ function loadEveryListing() {
         var price = doc.data().price;
         var docId = doc.id;
         var bookCategory = doc.data().category;
-        if ((category == undefined || category == bookCategory) && ((maxPrice == undefined && minPrice == undefined) || (price >= minPrice && price <= maxPrice))) {
+        if ((category == undefined || category == bookCategory) && (price >= minPrice && price <= maxPrice)) {
           everyListingId.push(docId);
           i++;
         }
@@ -84,25 +84,9 @@ function filterByCategory(categoryNum) {
 
 }
 
-function filterByPrice(priceNum) {
-  switch (priceNum) {
-    case 1:
-      minPrice = 0;
-      maxPrice = 99;
-      break;
-    case 2:
-      minPrice = 100;
-      maxPrice = 199;
-      break;
-    case 3:
-      minPrice = 200;
-      maxPrice = 1000;
-      break;
-    default:
-      minPrice = undefined;
-      maxPrice = undefined;
-      break;
-  }
+function filterByPrice() {
+  minPrice = document.getElementById('min-range').value;
+  maxPrice = document.getElementById('max-range').value;
   loadEveryListing();
 }
 
@@ -114,11 +98,13 @@ function moveToOtherPage(num) {
   pageButtons[num - 1].classList.add('active');
   showListings(num);
 }
+
 function redirect(row) {
   var listingId = everyListingId[row - 1];
   localStorage.setItem('listingDocID', listingId);
   window.location.href = 'details.html';
 }
+
 function sortListings() {
   sortBy = document.getElementById('sortby').value;
   loadEveryListing();
@@ -139,4 +125,16 @@ function changeOrder(num) {
   }
 
   loadEveryListing();
+}
+
+function changeRangeValue(value, num){
+  let min = document.getElementById('min-label');
+  let max = document.getElementById('max-label');
+  if (num == 1) {
+      min.innerHTML = "Min price: $" + value;
+      minPrice = value;
+  } else if (num == 2) {
+      max.innerHTML = "Max price $" + value;
+      maxPrice = value;
+  }
 }

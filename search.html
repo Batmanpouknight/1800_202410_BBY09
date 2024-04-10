@@ -95,14 +95,12 @@
                 <!-- BEGIN FILTER BY PRICE -->
                 <h4>By price:</h4>
                 <form>
-                  <input type="radio" id="price-option1" name="options" value="0-100" onclick="filterByPrice(1);">
-                  <label for="price-option1">$0-$100</label><br>
-                  <input type="radio" id="price-option2" name="options" value="100-200" onclick="filterByPrice(2);">
-                  <label for="price-option2">$100-$200</label><br>
-                  <input type="radio" id="price-option3" name="options" value="200+" onclick="filterByPrice(3);">
-                  <label for="price-option3">$200+</label><br>
-                  <input type="radio" id="price-none" name="options" value="none" onclick="filterByPrice(4);">
-                  <label for="price-none">None</label><br>
+                 
+                  <label for="min-range" id="min-label" class="form-label">Min price: $0</label>
+                  <input type="range" class="form-range" id="min-range" min="0" max="1000" value="0" step="1" oninput="changeRangeValue(this.value, 1)">
+                  <label for="max-range" id="max-label" class="form-label">Max price: $1000</label>
+                  <input type="range" class="form-range" id="max-range" min="0" max="1000" value="1000" step="1" oninput="changeRangeValue(this.value, 2)">
+                  <button type="button" onclick="filterByPrice();">Filter</button>
                 </form>
                 <!-- END FILTER BY PRICE -->
               </div>
@@ -112,15 +110,6 @@
                 <h2><i class="fa fa-file-o"></i> Result</h2>
                 <hr>
                 <!-- BEGIN SEARCH INPUT -->
-                <!-- <div class="input-group">
-                  <input type="text" class="form-control" value="web development">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-                  </span>
-                </div> -->
-                <!-- END SEARCH INPUT -->
-                <!-- <p>Showing all results matching "web development"</p> -->
-
                 <div class="padding"></div>
 
                 <div class="row">
@@ -148,14 +137,9 @@
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tbody id="listings-go-here">
-                      <!-- <tr id="item1" onclick="redirect(1);"> TEMPLATE
-                        <td class="number text-center">1</td>
-                        <td class="image-contain"><img class="image" src="https://www.bootdey.com/image/400x300/FF8C00"
-                            alt=""></td>
-                        <td class="product"><strong>Product 1</strong><br>This is the product description.</td>
-                        <td class="date text-right"></td>
-                        <td class="price text-right">$350</td>
-                      </tr>-->
+                      <div class="spinner-grow text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
                     </tbody>
                     <!-- END TABLE RESULT -->
 

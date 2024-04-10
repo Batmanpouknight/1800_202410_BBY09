@@ -31,7 +31,7 @@ function createNewListing(){
         subBut.disabled = false;
         return;
     }
-    if (price > 1000) {
+    if (price >= 1000) {
         alert("books can not be that expensive");
         subBut.disabled = false;
         return;
