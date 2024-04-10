@@ -23,3 +23,14 @@ function deleteUserListings(userId){
     });
   })
 }
+
+function autoListing(){
+  document.getElementById("name").value = "Writing in technical fields";
+  document.getElementById("price").value = 17;
+  document.getElementById("description").value = "Good condition Great boo";
+  document.getElementById("author").value = "Thorsten Ewald";
+  document.getElementById("edition").value = 3;
+  document.getElementById("course").value = "COMM 1116";
+  document.getElementById("categories").value = "Computing & Information Technology";
+    
+}
