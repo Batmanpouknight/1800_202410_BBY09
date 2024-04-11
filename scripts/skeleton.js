@@ -1,3 +1,4 @@
+//loads navbar and footer based on login 
 function loadSkeleton() {
 
     firebase.auth().onAuthStateChanged(function (user) {

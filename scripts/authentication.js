@@ -22,19 +22,19 @@ var uiConfig = {
                     email: user.email,                         //with authenticated user's ID (user.uid)
                     country: "Canada",                      //optional default profile info      
                     school: "BCIT",
-                    ratingsTotal: 0,
-                    lastSeen: firebase.firestore.FieldValue.serverTimestamp()
+                    ratingsTotal: 0,                        //sets total ratings to 0 
+                    lastSeen: firebase.firestore.FieldValue.serverTimestamp() //sets the last seen on user profile to the current time
                 }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("main.html");       //re-direct to main.html after signup
-                    localStorage.setItem("currUserid", user.uid);
+                    localStorage.setItem("currUserid", user.uid); //stores our users id in localstorage for easy access
                 }).catch(function (error) {
                     console.log("Error adding new user: " + error);
                 });
             } else {
-                localStorage.setItem("currUserid", user.uid);
+                localStorage.setItem("currUserid", user.uid); //stores our users id in localstorage for easy access
                 db.collection("users").doc(user.uid).update({
-                    lastSeen: firebase.firestore.FieldValue.serverTimestamp()
+                    lastSeen: firebase.firestore.FieldValue.serverTimestamp() //sets the last seen on user profile to the current time
                 });
                 return true;
             }
