@@ -54,18 +54,18 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .firebase                # Folder for firebase
 ├── images                   # Folder for images
-    /Carousel1.jpg           # 
-    /Carousel2.jpg           #
-    /Carousel3.jpg           #
+    /Carousel1.jpg           # pexels.com
+    /Carousel2.jpg           # pexels.com
+    /Carousel3.jpg           # pexels.com
     /favicon.png             # Made by copilot 
-    /HandtohandTransaction.jpg #
+    /HandtohandTransaction.jpg # pexels.com
     /logo.jpg                # Made by copilot 
     /logo.png                # Made by copilot 
     /mispelling gaide.jpg    # Made by copilot 
-    /profile-pic.jpg         # 
-    /shrek-tshirt.jpg        # A picture of a shrek t shirt on Amazon
-    /Textbooks.jpg           # 
-    /Textbooks1.jpg          #   
+    /profile-pic.jpg         # pexels.com
+    /shrek-tshirt.jpg        # A picture of a shrek t-shirt on Amazon
+    /Textbooks.jpg           # pexels.com
+    /Textbooks1.jpg          # pexels.com
 ├── scripts                  # Folder for scripts
     /accounts.js             # Script for populating accounts page
     /authentication.js       # Script for signing in and loggong in users
